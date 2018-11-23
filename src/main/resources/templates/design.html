@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Shaurma Cloud</title>
+</head>
+<body>
+<form method="post" th:object="${design}">
+    <h1>Design your Shaurma!</h1>
+    <img th:src="@{/images/ShaurmaCloud.png}">
+
+    <div id="wraps">
+        <h3>Designate your wrap:</h3>
+        <div th:each="ingredient : ${wrap}">
+            <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+            <span th:text="${ingredient.name}">INGREDIENT</span>
+            <br/>
+        </div>
+    </div>
+
+    <div id="proteins">
+        <h3>Pick your protein:</h3>
+        <div th:each="ingredient : ${protein}">
+            <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+            <span th:text="${ingredient.name}">INGREDIENT</span>
+            <br/>
+        </div>
+    </div>
+
+    <div id="cheeses">
+        <h3>Choose your cheese:</h3>
+        <div th:each="ingredient : ${cheese}">
+            <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+            <span th:text="${ingredient.name}">INGREDIENT</span>
+            <br/>
+        </div>
+    </div>
+
+    <div id="veggies">
+        <h3>Determine your veggies:</h3>
+        <div th:each="ingredient : ${veggies}">
+            <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+            <span th:text="${ingredient.name}">INGREDIENT</span>
+            <br/>
+        </div>
+    </div>
+
+    <div id="sauces">
+        <h3>Select your sauce:</h3>
+        <div th:each="ingredient : ${sauce}">
+            <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+            <span th:text="${ingredient.name}">INGREDIENT</span>
+            <br/>
+        </div>
+    </div>
+
+    <h3>Name your shaurma:</h3>
+    <input type="text" th:field="*{name}">
+    <!--<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Shaurma Name Errors</span>-->
+    <br/>
+
+    <button>Submit your shaurma</button>
+
+</form>
+</body>
+</html>
