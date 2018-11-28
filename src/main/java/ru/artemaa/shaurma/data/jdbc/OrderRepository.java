@@ -1,4 +1,4 @@
-package ru.artemaa.shaurma.data;
+package ru.artemaa.shaurma.data.jdbc;
 
 import ru.artemaa.shaurma.Order;
 

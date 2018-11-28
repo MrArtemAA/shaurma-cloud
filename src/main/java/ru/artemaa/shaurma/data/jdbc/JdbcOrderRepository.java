@@ -1,4 +1,4 @@
-package ru.artemaa.shaurma.data;
+package ru.artemaa.shaurma.data.jdbc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

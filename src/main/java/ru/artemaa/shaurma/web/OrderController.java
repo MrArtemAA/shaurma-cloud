@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import ru.artemaa.shaurma.Order;
-import ru.artemaa.shaurma.data.OrderRepository;
+import ru.artemaa.shaurma.data.jdbc.OrderRepository;
 
 import javax.validation.Valid;
 

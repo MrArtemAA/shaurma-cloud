@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.artemaa.shaurma.Ingredient;
 import ru.artemaa.shaurma.Order;
 import ru.artemaa.shaurma.Shaurma;
-import ru.artemaa.shaurma.data.IngredientRepository;
-import ru.artemaa.shaurma.data.ShaurmaRepository;
+import ru.artemaa.shaurma.data.jdbc.IngredientRepository;
+import ru.artemaa.shaurma.data.jdbc.ShaurmaRepository;
 
 import javax.validation.Valid;
 import java.util.ArrayList;

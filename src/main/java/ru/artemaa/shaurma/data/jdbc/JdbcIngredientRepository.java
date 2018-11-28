@@ -1,4 +1,4 @@
-package ru.artemaa.shaurma.data;
+package ru.artemaa.shaurma.data.jdbc;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
