@@ -1,4 +1,4 @@
-package ru.artemaa.shaurma;
+package ru.artemaa.shaurma.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import ru.artemaa.shaurma.Order;
 import ru.artemaa.shaurma.data.OrderRepository;
 
 import javax.validation.Valid;

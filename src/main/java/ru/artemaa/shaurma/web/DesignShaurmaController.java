@@ -1,4 +1,4 @@
-package ru.artemaa.shaurma;
+package ru.artemaa.shaurma.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import ru.artemaa.shaurma.Ingredient;
+import ru.artemaa.shaurma.Order;
+import ru.artemaa.shaurma.Shaurma;
 import ru.artemaa.shaurma.data.IngredientRepository;
 import ru.artemaa.shaurma.data.ShaurmaRepository;
 
