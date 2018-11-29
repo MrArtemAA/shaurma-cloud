@@ -1,7 +1,6 @@
 package ru.artemaa.shaurma.web;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -9,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.artemaa.shaurma.Ingredient;
 import ru.artemaa.shaurma.Order;
 import ru.artemaa.shaurma.Shaurma;
-import ru.artemaa.shaurma.data.jdbc.IngredientRepository;
-import ru.artemaa.shaurma.data.jdbc.ShaurmaRepository;
+import ru.artemaa.shaurma.data.jpa.IngredientRepository;
+import ru.artemaa.shaurma.data.jpa.ShaurmaRepository;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -25,7 +24,6 @@ public class DesignShaurmaController {
     private final IngredientRepository ingredientRepository;
     private final ShaurmaRepository shaurmaRepository;
 
-    @Autowired
     public DesignShaurmaController(IngredientRepository ingredientRepository, ShaurmaRepository shaurmaRepository) {
         this.ingredientRepository = ingredientRepository;
         this.shaurmaRepository = shaurmaRepository;

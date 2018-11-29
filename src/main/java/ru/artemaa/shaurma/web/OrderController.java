@@ -1,7 +1,6 @@
 package ru.artemaa.shaurma.web;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import ru.artemaa.shaurma.Order;
-import ru.artemaa.shaurma.data.jdbc.OrderRepository;
+import ru.artemaa.shaurma.data.jpa.OrderRepository;
 
 import javax.validation.Valid;
 
@@ -21,7 +20,6 @@ import javax.validation.Valid;
 public class OrderController {
     private final OrderRepository orderRepository;
 
-    @Autowired
     public OrderController(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }

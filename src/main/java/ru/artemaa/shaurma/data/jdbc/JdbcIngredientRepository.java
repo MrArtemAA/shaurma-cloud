@@ -1,6 +1,5 @@
 package ru.artemaa.shaurma.data.jdbc;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.artemaa.shaurma.Ingredient;
@@ -12,7 +11,6 @@ import java.sql.SQLException;
 public class JdbcIngredientRepository implements IngredientRepository {
     private JdbcTemplate jdbc;
 
-    @Autowired
     public JdbcIngredientRepository(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }

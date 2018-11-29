@@ -1,4 +1,7 @@
 package ru.artemaa.shaurma.data.jpa;
 
-public interface IngredientRepository {
+import org.springframework.data.repository.CrudRepository;
+import ru.artemaa.shaurma.Ingredient;
+
+public interface IngredientRepository extends CrudRepository<Ingredient, String> {
 }

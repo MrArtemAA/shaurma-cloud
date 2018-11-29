@@ -1,12 +1,12 @@
 package ru.artemaa.shaurma.data.jdbc;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import ru.artemaa.shaurma.Ingredient;
 import ru.artemaa.shaurma.Shaurma;
 
 import java.sql.Timestamp;
@@ -19,7 +19,6 @@ import static java.util.Arrays.asList;
 public class JdbcShaurmaRepository implements ShaurmaRepository {
     private JdbcTemplate jdbc;
 
-    @Autowired
     public JdbcShaurmaRepository(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
@@ -28,7 +27,7 @@ public class JdbcShaurmaRepository implements ShaurmaRepository {
     public Shaurma save(Shaurma shaurma) {
         long shaurmaId = saveShaurmaInfo(shaurma);
         shaurma.setId(shaurmaId);
-        shaurma.getIngredients().forEach(ingredientId -> saveIngredientToShaurma(ingredientId, shaurmaId));
+        shaurma.getIngredients().forEach(ingredient -> saveIngredientToShaurma(ingredient, shaurmaId));
         return shaurma;
     }
 
@@ -53,11 +52,11 @@ public class JdbcShaurmaRepository implements ShaurmaRepository {
         return keyHolder.getKey().longValue();
     }
 
-    private void saveIngredientToShaurma(String ingredientId, long shaurmaId) {
+    private void saveIngredientToShaurma(Ingredient ingredient, long shaurmaId) {
         jdbc.update(
                 "insert into Shaurma_Ingredients (shaurma, ingredient) values (?, ?)",
                 shaurmaId,
-                ingredientId
+                ingredient.getId()
         );
     }
 }
