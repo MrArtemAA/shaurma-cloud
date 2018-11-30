@@ -1,6 +1,7 @@
 package ru.artemaa.shaurma.web;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import ru.artemaa.shaurma.Order;
+import ru.artemaa.shaurma.User;
 import ru.artemaa.shaurma.data.jpa.OrderRepository;
 
 import javax.validation.Valid;
@@ -30,11 +32,17 @@ public class OrderController {
     }
 
     @PostMapping
-    public String processOrder(@Valid Order order, Errors errors, SessionStatus sessionStatus) {
+    public String processOrder(
+            @Valid Order order,
+            Errors errors,
+            SessionStatus sessionStatus,
+            @AuthenticationPrincipal User user
+    ) {
         if (errors.hasErrors()) {
             return "orderForm";
         }
 
+        order.setUser(user);
         orderRepository.save(order);
         sessionStatus.setComplete();
 

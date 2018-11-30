@@ -3,10 +3,7 @@ package ru.artemaa.shaurma;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -43,6 +40,9 @@ public class Order {
 
     @ManyToMany(targetEntity = Shaurma.class)
     private List<Shaurma> shaurmas = new ArrayList<>();
+
+    @ManyToOne
+    private User user;
 
     public void addDesign(Shaurma shaurma) {
         shaurmas.add(shaurma);

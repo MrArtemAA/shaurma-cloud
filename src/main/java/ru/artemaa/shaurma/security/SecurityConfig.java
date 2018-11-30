@@ -1,6 +1,7 @@
 package ru.artemaa.shaurma.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
+    @Qualifier("customUserDetailsService")
     private UserDetailsService userDetailsService;
 
     @Bean
@@ -34,11 +36,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                     .antMatchers("/design", "/order")
-                        .hasRole("ROLE_USER")
+                        .hasRole("USER")
                     .antMatchers("/", "/**")
                         .permitAll()
                 .and()
                     .formLogin()
-                        .loginPage("/login");
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/design")
+                .and()
+                    .logout()
+                        .logoutSuccessUrl("/");
     }
 }

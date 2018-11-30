@@ -7,7 +7,7 @@
     <title>Shaurma Cloud</title>
 </head>
 <body>
-<form method="post" th:object="${design}">
+<form method="post" th:action="@{/design}" th:object="${design}">
     <h1>Design your Shaurma!</h1>
     <img th:src="@{/images/ShaurmaCloud.png}">
 
@@ -63,6 +63,9 @@
 
     <button>Submit your shaurma</button>
 
+</form>
+<form method="post" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
 </form>
 </body>
 </html>

@@ -13,9 +13,10 @@ import java.util.Collection;
 import static java.util.Collections.singletonList;
 
 @Data
+@Builder
+@AllArgsConstructor
 @RequiredArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-@Builder
 @Entity
 public class User implements UserDetails {
     @Id

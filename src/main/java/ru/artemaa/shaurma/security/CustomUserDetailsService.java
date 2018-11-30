@@ -9,7 +9,7 @@ import ru.artemaa.shaurma.data.jpa.UserRepository;
 
 import static java.util.Objects.isNull;
 
-@Service
+@Service("customUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService {
     private final UserRepository userRepository;
 
