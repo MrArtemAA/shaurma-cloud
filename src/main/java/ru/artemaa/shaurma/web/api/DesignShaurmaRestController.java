@@ -41,4 +41,10 @@ public class DesignShaurmaRestController {
                 .map(shaurma -> new ResponseEntity<>(shaurma, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
+    public Shaurma postShaurma(@RequestBody Shaurma shaurma) {
+        return shaurmaRepository.save(shaurma);
+    }
 }
