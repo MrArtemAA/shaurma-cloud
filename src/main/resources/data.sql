@@ -1,8 +1,8 @@
-delete from Shaurma_Order_Shaurmas;
+/*delete from Shaurma_Order_Shaurmas;
 delete from Shaurma_Ingredients;
 delete from Shaurma;
 delete from Shaurma_Order;
-delete from Ingredient;
+delete from Ingredient;*/
 
 insert into Ingredient (id, name, type) values 
   ('RGPT', 'Regular Pita', 'WRAP'),
