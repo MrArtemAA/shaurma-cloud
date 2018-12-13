@@ -6,6 +6,7 @@ import org.springframework.hateoas.EntityLinks;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import ru.artemaa.shaurma.Shaurma;
@@ -31,5 +32,10 @@ public class WebConfig implements WebMvcConfigurer {
                 return resources;
             }
         };
+    }
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
     }
 }
