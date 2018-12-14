@@ -17,7 +17,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@RestResource(rel = "shaurma", path = "shaurmas")
+@RestResource(rel = "shaurmas", path = "shaurmas")
 public class Shaurma {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

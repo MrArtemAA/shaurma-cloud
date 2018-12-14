@@ -5,6 +5,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.Resources;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.HttpStatus;
@@ -37,7 +38,7 @@ public class RecentShaurmaController {
         this.designProperties = designProperties;
     }
 
-    @GetMapping(value = "/shaurmas/recent", produces = "application/hal+json")
+    @GetMapping(value = "/shaurmas/recent", produces = MediaTypes.HAL_JSON_VALUE)
     public ResponseEntity<Resources<ShaurmaResource>> recent() {
         Pageable pageable = PageRequest.of(
                 0,
