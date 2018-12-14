@@ -1,4 +1,4 @@
-package ru.artemaa.shaurma.web;
+package ru.artemaa.shaurma.web.api;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,8 +18,6 @@ import java.util.Map;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-//@WebMvcTest
-//@WebAppConfiguration
 @SpringBootTest
 public class RestTemplateTest {
     private static final String URL_INGREDIENT_BY_ID = "http://localhost:9090/rest/ingredients/{id}";
