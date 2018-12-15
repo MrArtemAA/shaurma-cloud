@@ -7,13 +7,14 @@ import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Data
 @Entity(name = "Shaurma_Order")
-public class Order {
+public class Order implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
