@@ -38,9 +38,4 @@ public class WebConfig implements WebMvcConfigurer {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
-
-    /*@Bean
-    public Traverson traverson() {
-        return new Traverson(URI.create("http://localhost:9090/api"), MediaTypes.HAL_JSON);
-    }*/
 }
