@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 import ru.artemaa.shaurma.Ingredient;
 import ru.artemaa.shaurma.Shaurma;
-import ru.artemaa.shaurma.Ingredient;
 
 import java.net.URI;
 import java.util.Collection;

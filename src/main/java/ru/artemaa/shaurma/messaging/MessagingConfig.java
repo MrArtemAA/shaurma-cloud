@@ -1,6 +1,9 @@
 package ru.artemaa.shaurma.messaging;
 
 import org.apache.activemq.artemis.jms.client.ActiveMQQueue;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
@@ -9,11 +12,6 @@ import ru.artemaa.shaurma.Order;
 import javax.jms.Destination;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
-import org.springframework.amqp.support.converter.MessageConverter;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MessagingConfig {
@@ -23,7 +21,7 @@ public class MessagingConfig {
     }
 
     @Bean
-    public MappingJackson2MessageConverter messageConverter() {
+    public MappingJackson2MessageConverter jmsMessageConverter() {
         MappingJackson2MessageConverter messageConverter = new MappingJackson2MessageConverter();
         messageConverter.setTypeIdPropertyName("_typeId");
 
@@ -40,7 +38,7 @@ public class MessagingConfig {
     }
 
     @Bean
-    public MessageConverter messageConverter() {
+    public MessageConverter amqpMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
 }
