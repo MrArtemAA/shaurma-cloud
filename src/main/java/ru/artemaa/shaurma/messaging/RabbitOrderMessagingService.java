@@ -7,13 +7,14 @@ import org.springframework.stereotype.Service;
 import ru.artemaa.shaurma.Order;
 
 @Service
-public class RabbitOrderMessagingService {
+public class RabbitOrderMessagingService implements OrderMessagingService {
     private final RabbitTemplate rabbitTemplate;
 
     public RabbitOrderMessagingService(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
 
+    @Override
     public void sendOrder(Order order) {
         /*MessageConverter messageConverter = rabbitTemplate.getMessageConverter();
         MessageProperties messageProperties = new MessageProperties();
