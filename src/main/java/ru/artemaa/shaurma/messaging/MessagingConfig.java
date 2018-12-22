@@ -7,6 +7,8 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
+import org.springframework.kafka.core.DefaultKafkaProducerFactory;
+import org.springframework.kafka.core.KafkaTemplate;
 import ru.artemaa.shaurma.Order;
 
 import javax.jms.Destination;
@@ -40,5 +42,12 @@ public class MessagingConfig {
     @Bean
     public MessageConverter amqpMessageConverter() {
         return new Jackson2JsonMessageConverter();
+    }
+
+    @Bean
+    KafkaTemplate<String, Order> orderKafkaTemplate() {
+        return new KafkaTemplate<>(
+                new DefaultKafkaProducerFactory<>(new HashMap<>())
+        );
     }
 }
