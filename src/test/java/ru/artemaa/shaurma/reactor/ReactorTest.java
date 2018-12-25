@@ -262,8 +262,7 @@ public class ReactorTest {
                 .expectNext(Arrays.asList(fruits[3], fruits[4]))
                 .verifyComplete();
 
-        Flux.fromArray(fruits)
-                .buffer(3)
+        flux
                 .flatMap(fruitList -> Flux.fromIterable(fruitList)
                         .map(String::toUpperCase)
                         .subscribeOn(Schedulers.parallel())
@@ -288,6 +287,39 @@ public class ReactorTest {
 
         StepVerifier.create(collectMap)
                 .expectNextMatches(map -> map.size() == 5)
+                .verifyComplete();
+    }
+
+    @Test
+    public void testAll() {
+        Flux<String> flux = Flux.fromArray(fruits)
+                .map(String::toLowerCase);
+
+        Mono<Boolean> monoTrue = flux
+                .all(fruit -> fruit.contains("a"));
+        StepVerifier.create(monoTrue)
+                .expectNext(true)
+                .verifyComplete();
+
+        Mono<Boolean> monoFalse = flux
+                .all(fruit -> fruit.contains("A"));
+        StepVerifier.create(monoFalse)
+                .expectNext(false)
+                .verifyComplete();
+    }
+
+    @Test
+    public void testAny() {
+        Flux<String> flux = Flux.fromArray(fruits);
+
+        Mono<Boolean> monoTrue = flux.any(fruit -> fruit.contains("b"));
+        StepVerifier.create(monoTrue)
+                .expectNext(true)
+                .verifyComplete();
+
+        Mono<Boolean> monoFalse = flux.any(fruit -> fruit.contains("W"));
+        StepVerifier.create(monoFalse)
+                .expectNext(false)
                 .verifyComplete();
     }
 }
