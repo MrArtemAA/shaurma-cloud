@@ -1,4 +1,7 @@
 Steps to do:
+General
+1. Switch to multi-module maven project
+
 Ch. 1-7
 1. Turn off security and run api tests
 1. Find way to run tests with security enabled
