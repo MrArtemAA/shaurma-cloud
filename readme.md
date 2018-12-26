@@ -17,3 +17,5 @@ Ch. 9
 
 Ch. 11
 1. Make RouterFunction POST return location
+1. Implement 11.3.2, after understanding Ch.12 and reactive repositories
+
