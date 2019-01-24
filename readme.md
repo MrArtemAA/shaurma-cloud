@@ -22,3 +22,5 @@ Ch. 11
 1. Make RouterFunction POST return location
 1. Implement 11.3.2, after understanding Ch.12 and reactive repositories
 1. Check live server tests after switching to reactive repositories
+1. Check WebClient tests
+1. Add user details service after adding reactive repositories
