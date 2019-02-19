@@ -9,10 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>shaurma-cloud-reactive</artifactId>
-    <name>Shaurma-cloud reactive</name>
-    <description>Shaurma cloud project build on reactive api</description>
-    <packaging>jar</packaging>
+    <artifactId>shaurma-cloud-cassandra</artifactId>
+    <name>Shaurma-cloud cassandra</name>
+    <description>Shaurma cloud project build on cassandra reactive api</description>
 
     <dependencies>
         <dependency>

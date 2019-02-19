@@ -24,3 +24,6 @@ Ch. 11
 1. Check live server tests after switching to reactive repositories
 1. Check WebClient tests
 1. Add user details service after adding reactive repositories
+
+Ch. 12
+1. Make Cassandra work

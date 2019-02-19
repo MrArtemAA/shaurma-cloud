@@ -11,6 +11,7 @@
         <module>shaurma-cloud-domain</module>
         <module>shaurma-cloud-reactive</module>
         <module>shaurma-cloud-kitchen</module>
+        <module>shaurma-cloud-cassandra</module>
     </modules>
 
     <name>shaurma-cloud</name>
