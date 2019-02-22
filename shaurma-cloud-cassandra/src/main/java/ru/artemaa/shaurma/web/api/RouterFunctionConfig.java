@@ -10,6 +10,8 @@ import ru.artemaa.shaurma.dao.ShaurmaRepository;
 import ru.artemaa.shaurma.model.Shaurma;
 import ru.artemaa.shaurma.web.DesignProperties;
 
+import java.net.URI;
+
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
@@ -39,8 +41,12 @@ public class RouterFunctionConfig {
 
     private Mono<ServerResponse> postShaurma(ServerRequest request) {
         Mono<Shaurma> shaurma = request.bodyToMono(Shaurma.class);
-        return ServerResponse.ok()
-                .body(shaurmaRepository.saveAll(shaurma).next(), Shaurma.class);
+        Mono<Shaurma> savedShaurma = shaurmaRepository.saveAll(shaurma).next();
+        return ServerResponse
+                .created(URI.create(
+                        "http://localhost:8080/rest/rx/router/design/shaurma" + savedShaurma.block().getId()
+                ))
+                .body(savedShaurma, Shaurma.class);
     }
 
 }
