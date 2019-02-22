@@ -1,7 +1,10 @@
 package ru.artemaa.shaurma.model;
 
 import com.datastax.driver.core.utils.UUIDs;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.cassandra.core.cql.Ordering;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.Column;
@@ -13,6 +16,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table("shaurmas")
 public class Shaurma {
     @PrimaryKeyColumn(type = PrimaryKeyType.PARTITIONED)

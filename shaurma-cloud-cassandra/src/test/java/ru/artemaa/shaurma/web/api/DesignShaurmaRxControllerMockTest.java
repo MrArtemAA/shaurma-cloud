@@ -3,9 +3,9 @@ package ru.artemaa.shaurma.web.api;
 import org.junit.Test;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
-import ru.artemaa.shaurma.Ingredient;
-import ru.artemaa.shaurma.Shaurma;
-import ru.artemaa.shaurma.data.jpa.rx.ShaurmaRepository;
+import ru.artemaa.shaurma.dao.ShaurmaRepository;
+import ru.artemaa.shaurma.model.Ingredient;
+import ru.artemaa.shaurma.model.Shaurma;
 import ru.artemaa.shaurma.web.DesignProperties;
 
 import java.util.Arrays;
@@ -13,7 +13,7 @@ import java.util.Arrays;
 import static java.util.Arrays.asList;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static ru.artemaa.shaurma.web.api.rx.DesignShaurmaRxController.BASE_URL;
+import static ru.artemaa.shaurma.web.api.DesignShaurmaRxController.BASE_URL;
 
 public class DesignShaurmaRxControllerMockTest {
 
