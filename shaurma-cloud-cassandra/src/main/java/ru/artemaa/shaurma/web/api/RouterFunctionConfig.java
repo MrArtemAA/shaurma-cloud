@@ -1,4 +1,4 @@
-package ru.artemaa.shaurma.web.api.rx;
+package ru.artemaa.shaurma.web.api;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,8 +6,8 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
-import ru.artemaa.shaurma.Shaurma;
-import ru.artemaa.shaurma.data.jpa.rx.ShaurmaRepository;
+import ru.artemaa.shaurma.dao.ShaurmaRepository;
+import ru.artemaa.shaurma.model.Shaurma;
 import ru.artemaa.shaurma.web.DesignProperties;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;

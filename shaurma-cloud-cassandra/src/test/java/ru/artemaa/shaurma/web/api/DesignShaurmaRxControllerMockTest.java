@@ -1,4 +1,4 @@
-package ru.artemaa.shaurma.web.api.rx;
+package ru.artemaa.shaurma.web.api;
 
 import org.junit.Test;
 import org.springframework.test.web.reactive.server.WebTestClient;

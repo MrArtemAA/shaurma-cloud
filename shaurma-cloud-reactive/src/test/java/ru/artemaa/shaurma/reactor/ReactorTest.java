@@ -1,4 +1,4 @@
-package ru.artemaa.shaurma.reactor.reactor;
+package ru.artemaa.shaurma.reactor;
 
 import lombok.Data;
 import org.junit.Test;

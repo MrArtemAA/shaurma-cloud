@@ -1,13 +1,15 @@
-package ru.artemaa.shaurma.web.api.rx;
+package ru.artemaa.shaurma.web.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import ru.artemaa.shaurma.Shaurma;
-import ru.artemaa.shaurma.data.jpa.rx.ShaurmaRepository;
+import ru.artemaa.shaurma.dao.ShaurmaRepository;
+import ru.artemaa.shaurma.model.Shaurma;
 import ru.artemaa.shaurma.web.DesignProperties;
+
+import java.util.UUID;
 
 @RestController
 @RequestMapping(path = DesignShaurmaRxController.BASE_URL, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -28,7 +30,7 @@ public class DesignShaurmaRxController {
     }
 
     @GetMapping("/{id}")
-    public Mono<Shaurma> getById(@PathVariable("id") Long id) {
+    public Mono<Shaurma> getById(@PathVariable("id") UUID id) {
         return shaurmaRepository.findById(id);
     }
 
